@@ -1,4 +1,5 @@
 import NavBar from "@/components/NavBar";
+import StreamProvider from "@/providers/StreamProvider";
 import React from "react";
 const HomeLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
@@ -6,7 +7,9 @@ const HomeLayout = async ({ children }: { children: React.ReactNode }) => {
       <main className="relative">
         <NavBar />
         <section className="flex min-h-screen flex-1 flex-col px-6 pb-6 pt-28 max-md:pb-14 sm:px-14">
-          <div className="w-full">{children}</div>
+          <div className="w-full">
+            <StreamProvider>{children}</StreamProvider>
+          </div>
         </section>
       </main>
     </>

@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
-import {
-  ClerkProvider,
-} from "@clerk/nextjs";
+import { ClerkProvider } from "@clerk/nextjs";
 
 import "./globals.css";
-import "react-datepicker/dist/react-datepicker.css"
-
+import "react-datepicker/dist/react-datepicker.css";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "School's Talk",
@@ -21,7 +19,8 @@ export default function RootLayout({
     <ClerkProvider>
       <html lang="en">
         <body>
-          {children}
+          <main>{children}</main>
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

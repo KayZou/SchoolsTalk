@@ -8,8 +8,8 @@ export const navLinks = [
   },
   {
     icon: CalendarDays,
-    route: "/upcomings",
-    label: "Upcomings",
+    route: "/upcoming",
+    label: "Upcoming",
   },
   {
     icon: ArrowLeftCircle,
