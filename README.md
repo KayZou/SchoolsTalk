@@ -99,3 +99,7 @@ Contributions are welcome! Please open issues or create pull requests for enhanc
 ## License
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Demo view
+
+https://schools-talk.vercel.app/
