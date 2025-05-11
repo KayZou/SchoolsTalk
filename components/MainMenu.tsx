@@ -86,6 +86,40 @@ const MainMenu = () => {
     }
   };
 
+   const joinMeeting = () => {
+    if (!user) return router.push("/login");
+    
+    try {
+      // Extract meeting ID from the link
+      let meetingId = values.link.trim();
+      
+      // Handle full URLs by extracting just the meeting ID
+      if (meetingId.includes("/meeting/")) {
+        meetingId = meetingId.split("/meeting/")[1].split(/[/?#]/)[0];
+      }
+      
+      if (!meetingId) {
+        toast("Please enter a valid meeting link or ID", {
+          duration: 3000,
+          className: "bg-gray-300 rounded-3xl py-8 px-5 justify-center",
+        });
+        return;
+      }
+      
+      // Navigate to the meeting
+      router.push(`/meeting/${meetingId}`);
+      toast("Joining meeting...", {
+        duration: 3000,
+        className: "bg-gray-300 rounded-3xl py-8 px-5 justify-center",
+      });
+    } catch (error: any) {
+      toast(`Failed to join the meeting: ${error?.message}`, {
+        duration: 3000,
+        className: "!bg-gray-300 !rounded-3xl !py-8 !px-5 !justify-center",
+      });
+    }
+  };
+
   useEffect(() => {
     if (meetingState) {
       createMeeting();
@@ -154,7 +188,7 @@ const MainMenu = () => {
                 placeholder="Meeting Link"
                 onChange={(e) => setValues({ ...values, link: e.target.value })}
               />
-              <Button className="mt-5 font-extrabold text-lg text-white rounded-xl bg-blue-700 py-5 px-10 hover:bg-blue-900 hover:scale-100 transition ease-in-out delay-75 duration-700 hover-translate-y-1 cursor-pointer">
+              <Button className="mt-5 font-extrabold text-lg text-white rounded-xl bg-blue-700 py-5 px-10 hover:bg-blue-900 hover:scale-100 transition ease-in-out delay-75 duration-700 hover-translate-y-1 cursor-pointer" onClick={joinMeeting}>
                 Join Meeting
               </Button>
             </DialogDescription>
