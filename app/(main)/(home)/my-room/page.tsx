@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation"; // Enables client-side navigation i
 import { Button } from "@/components/ui/button"; // Reusable button component
 import Image from "next/image"; // Next.js component for optimized image rendering
 import { toast } from "sonner";
+import {Copy} from "lucide-react"
 
 // Define a PersonalMeetingInfo component to display meeting details
 const PersonalMeetingInfo = ({
@@ -99,7 +100,7 @@ const MyRoomPage = () => {
           }}
         >
           {/* Copy icon */}
-          <Image src="/assets/copy.svg" alt="copy" width={20} height={20} />
+          <Copy />
           Copy Invitation
         </Button>
       </div>

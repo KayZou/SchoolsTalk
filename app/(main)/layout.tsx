@@ -28,6 +28,11 @@ const MainLayout = async ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <main className="animate-fade-in">{children}</main>
+      <footer className="py-6 mt-auto">
+        <h3 className="text-center">
+          Made By School Solutions; Zak & Amina
+        </h3>
+      </footer>
     </>
   );
 };
